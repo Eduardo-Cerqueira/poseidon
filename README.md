@@ -4,7 +4,7 @@
 
 ## Starting the server
 
-#### ⚠️ Your terminal should be inside "src" before attempting to launch the server
+#### ⚠️ Your terminal should be inside "app" before attempting to launch the server
 #### If you need to use another port, add the flag `--port`
 #### Add flag `--reload` to refresh the server at each code change
 
