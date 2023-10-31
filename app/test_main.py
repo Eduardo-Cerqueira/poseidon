@@ -1,7 +1,7 @@
 # https://fastapi.tiangolo.com/tutorial/testing/#testing-file
 from fastapi.testclient import TestClient
 
-from main import app
+from app.main import app
 
 client = TestClient(app)
 

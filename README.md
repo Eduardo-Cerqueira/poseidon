@@ -14,14 +14,14 @@
 
 Run tests using :
 
-`pytest ./src`
+`pytest app`
 
 ### Linter
 https://docs.astral.sh/ruff/linter/
 
-`ruff check ./src --watch`
+`ruff check app --watch`
 
 ### Format
 https://docs.astral.sh/ruff/formatter/
 
-`ruff format ./src`
+`ruff format app`
