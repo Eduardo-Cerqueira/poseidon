@@ -22,40 +22,40 @@ conn = psycopg2.connect(
 cursor = conn.cursor()
 
 
-def fetch_all_products() -> [str]:
+def fetch_all_products() -> list[str]:
     """
     Fetch all products information from product table
-    :return [str] (String array):
+    :return list[str] (String array):
     """
     cursor.execute("SELECT * FROM product")
     return cursor.fetchall()
 
 
-def fetch_product_by_id(product_id: str) -> [str]:
+def fetch_product_by_id(product_id: str) -> list[str]:
     """
     Fetch product information using his id (identifier) field to filter from product table
     :parameter product_id:
-    :return [str] (String array):
+    :return list[str] (String array):
     """
     cursor.execute("SELECT * FROM product WHERE id = %s", [product_id])
     return cursor.fetchone()
 
 
-def fetch_product_by_code(code: str) -> [str]:
+def fetch_product_by_code(code: str) -> list[str]:
     """
     Fetch product information using his code field to filter from product table
     :parameter code:
-    :return [str] (String array):
+    :return list[str] (String array):
     """
     cursor.execute("SELECT * FROM product WHERE code = %s", [code])
     return cursor.fetchall()
 
 
-def fetch_product_by_name(name: str) -> [str]:
+def fetch_product_by_name(name: str) -> list[str]:
     """
     Fetch product information using his name field to filter from product table
     :parameter name:
-    :return [str] (String array):
+    :return list[str] (String array):
     """
     cursor.execute("SELECT * FROM product WHERE name = %s", [name])
     return cursor.fetchall()
