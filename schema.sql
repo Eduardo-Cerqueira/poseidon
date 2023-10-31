@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS public.customer_family
     id uuid NOT NULL DEFAULT gen_random_uuid (),
     code character varying(25) NOT NULL,
     description character varying(255),
-    CONSTRAINT customer_id_pk PRIMARY KEY (id),
+    CONSTRAINT customer_family_id_pk PRIMARY KEY (id),
     CONSTRAINT customer_family_code_unique UNIQUE (code)
 );
 
