@@ -22,42 +22,42 @@ conn = psycopg2.connect(
 cursor = conn.cursor()
 
 
-def fetch_all_products():
+def fetch_all_products() -> [str]:
     cursor.execute("SELECT * FROM product")
     return cursor.fetchall()
 
 
-def fetch_product_by_id(product_id: str):
+def fetch_product_by_id(product_id: str) -> [str]:
     cursor.execute("SELECT * FROM product WHERE id = %s", [product_id])
     return cursor.fetchone()
 
 
-def fetch_product_by_code(code: str):
+def fetch_product_by_code(code: str) -> [str]:
     cursor.execute("SELECT * FROM product WHERE code = %s", [code])
     return cursor.fetchall()
 
 
-def fetch_product_by_name(name_id: str):
+def fetch_product_by_name(name_id: str) -> [str]:
     cursor.execute("SELECT * FROM product WHERE name = %s", [name_id])
     return cursor.fetchall()
 
 
-def insert_product(code: str, name: str):
+def insert_product(code: str, name: str) -> None:
     cursor.execute("INSERT INTO product(code,name) VALUES(%s,%s)", [code, name])
     conn.commit()
 
 
-def update_product_code(code: str, product_id: str):
+def update_product_code(code: str, product_id: str) -> None:
     cursor.execute("UPDATE product SET code = %s WHERE id = %s", [code, product_id])
     conn.commit()
 
 
-def update_product_name(name: str, product_id: str):
+def update_product_name(name: str, product_id: str) -> None:
     cursor.execute("UPDATE product SET name = %s WHERE id = %s", [name, product_id])
     conn.commit()
 
 
-def update_product(code: str, name: str, product_id: str):
+def update_product(code: str, name: str, product_id: str) -> None:
     cursor.execute(
         "UPDATE product SET code = %s, name = %s WHERE id = %s",
         [code, name, product_id],
@@ -65,6 +65,6 @@ def update_product(code: str, name: str, product_id: str):
     conn.commit()
 
 
-def delete_product(product_id: str):
+def delete_product(product_id: str) -> None:
     cursor.execute("DELETE FROM product WHERE id = %s", [product_id])
     conn.commit()
