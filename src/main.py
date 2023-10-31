@@ -1,12 +1,11 @@
 from fastapi import FastAPI, HTTPException, status
-from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 
 from persistence.product_repository import (
     fetch_all_products,
     fetch_product_by_id,
     insert_product,
-    update_product
+    update_product,
 )
 
 app = FastAPI()
@@ -29,7 +28,9 @@ def read_products():
     return {"products": fetch_all_products()}
 
 
-@app.get("/products/{product_id}", response_model=Product, status_code=status.HTTP_200_OK)
+@app.get(
+    "/products/{product_id}", response_model=Product, status_code=status.HTTP_200_OK
+)
 def read_product(product_id: str):
     return {"product": fetch_product_by_id(product_id)}
 
