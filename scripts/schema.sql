@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS public.customer_family
 );
 
 COMMENT ON TABLE public.customer_family
-    IS 'Customers families';
+    IS 'Customers families table';
 
 CREATE TABLE IF NOT EXISTS public."order"
 (
@@ -47,6 +47,9 @@ CREATE TABLE IF NOT EXISTS public.product
     name character varying(50) NOT NULL,
     CONSTRAINT product_id_pk PRIMARY KEY (id)
 );
+
+COMMENT ON TABLE public."order"
+    IS 'Product table';
 
 ALTER TABLE IF EXISTS public.customer
     ADD CONSTRAINT customer_family_fk FOREIGN KEY (family)
