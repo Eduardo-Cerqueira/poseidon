@@ -1,8 +1,19 @@
 from fastapi import FastAPI, HTTPException, status
+from pydantic import BaseModel
 
-from persistence.product_repository import fetch_all_products, fetch_product_by_id
+from persistence.product_repository import (
+    fetch_all_products,
+    fetch_product_by_id,
+    insert_product,
+)
 
 app = FastAPI()
+
+
+# https://fastapi.tiangolo.com/tutorial/response-model
+class Product(BaseModel):
+    code: str
+    name: str
 
 
 @app.get("/")
@@ -26,6 +37,12 @@ def read_forbidden():
         status_code=status.HTTP_403_FORBIDDEN,
         detail="You are not authorized",
     )
+
+
+# More info here => https://fastapi.tiangolo.com/tutorial/sql-databases/?h=post#main-fastapi-app
+@app.post("/products/", status_code=status.HTTP_201_CREATED)
+def create_product(product: Product):
+    return insert_product(code=product.code, name=product.name)
 
 
 if __name__ == "__main__":
