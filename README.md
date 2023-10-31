@@ -6,6 +6,7 @@ pip install --require-virtualenv -r requirements.txt
 
 #### ⚠️ Your terminal should be inside "src" before attempting to launch the server
 #### If you need to use another port, add the flag --port
+#### Add flag --reload to refresh the server at each code change
 
 granian --interface asgi main:app
 
