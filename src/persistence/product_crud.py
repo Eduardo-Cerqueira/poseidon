@@ -4,15 +4,18 @@ from dotenv import load_dotenv
 
 load_dotenv()  # take environment variables from .env.
 
-database_name = os.getenv("DATABASE")
+database_name = os.getenv("DATABASE_NAME")
+database_host = os.getenv("DATABASE_HOST")
 database_port = os.getenv("POSTGRES_PORT")
+database_user = os.getenv("DATABASE_USER")
+database_password = os.getenv("DATABASE_PASSWORD")
 
 # Connect to database
 conn = psycopg2.connect(
     database=database_name,
-    host="localhost",
-    user="app",
-    password="password",
+    host=database_host,
+    user=database_user,
+    password=database_password,
     port=database_port,
 )
 
