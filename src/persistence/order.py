@@ -1,10 +1,10 @@
 import psycopg2
 
 # Connect to the database
-conn = psycopg2.connect(database="poséidon",
+conn = psycopg2.connect(database="poseidon",
                         host="localhost",
-                        user="postgres",
-                        password="Slender52!2",
+                        user="app",
+                        password="password",
                         port="5432")
 
 # Create a cursor for database operations
