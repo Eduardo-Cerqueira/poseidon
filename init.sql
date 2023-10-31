@@ -7,12 +7,12 @@ CREATE ROLE poseidon_dev
 /*
 * Create database
 */
-CREATE DATABASE poseidon;
+CREATE DATABASE poséidon;
 
 /*
 * Transfer ownership to group
 */
-ALTER DATABASE poseidon
+ALTER DATABASE poséidon
     OWNER TO poseidon_dev;
 
 /*
@@ -33,10 +33,10 @@ GRANT CREATE
 /*
 * Create new users
 */
-CREATE ROLE app
+CREATE ROLE postgres
     WITH LOGIN
     PASSWORD 'password'
     INHERIT;
 
 GRANT poseidon_dev
-    TO app
+    TO postgres
